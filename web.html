@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        * {
+        margin: 0;
+        padding: 0;
+        font-family: Roboto,"Helvetica Neue",Arial,sans-serif;
+        text-align: center;
+        }
+        
+        body{
+         background: #1edec1;
+        }
+
+        h1{
+        margin: 2;
+        }
+
+        h4{
+        margin: 10;
+        }
+
+        .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #1edec1;
+        padding: 20%;
+        height: 100%;
+        }
+
+        input {
+        padding: 10px;
+        border-radius: 3px;
+        }
+
+        .letra{           
+        padding: 4px;
+        border-radius: 3px; 
+        width: 15px;
+        background: #1edec1; 
+        }
+
+
+        button {
+        padding: 10px;
+        background: #4076f3;
+        outline: none;
+        border-radius: 20px;
+        border: 1px solid #4076f3;
+        color: rgb(255, 255, 255);
+        }
+
+        #response {
+        margin-top: 50px;
+        font-size: 24px;
+        text-align: center;
+        background-color: rgb(255, 255, 254);
+        }
+
+        #alertaRoja{
+        margin-top: 50px;
+        font-size: 20px;
+        text-align: ce0nter;
+        background-color: #f36740;
+        font-style: italic;
+        border-radius: 20px;
+        color: rgb(0, 0, 0);
+        }
+
+        .slider{
+            position: relative;
+            top:0px;
+            margin: 0px;
+            padding:0px;
+            width: 100%;
+            height: 16%;
+            overflow:hidden;
+            background: #1edec1;
+        }
+
+        .divLetras{
+        display:flex;
+        flex-direction: row-reverse;
+        }
+        
+
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+    <section class="slider" id="pantalla">
+        <div class="container" id="pag1">
+            <h1>¡Hola!</h1>
+            <h4>Soy Celia y estoy haciendo mi primer formulario con JS</h4>
+            <p>Antes de nada dime tu nombre así puedo dirigirme a ti</p>
+            <br/>
+            <input type="text" placeholder="Escribe tu nombre aquí" id="userName">
+            <br />
+            <button id="buttonSaludar">Saludar</button>
+            <br/>
+            <p>Haz scroll para continuar</p>
+        </div>
+        <div class="container">
+            <h3 id="saludoPersonal"></h3>
+            <br/>
+        </div>
+        <div class="container" id="pag2" >
+            <h1>¿Sabes escribir bien un email?</h1>
+            <h3>pasa una direccion de email por nuesto validador ...</h3>
+            <br/>
+            <input type="email" placeholder="email" id="emailField">
+            <br/>
+            <button id="buttonValidar">Validar</button>
+            <br />
+            <p>Puedes validar tantos emails como quieras</p>
+            <br />
+        </div>
+        <div class="container" id="pag3">
+            <h1>¿Quieres saber si aún eres joven?</h1>
+            <h4>Atención este formulario puede herir tus sentimientos</h4>
+            <br />
+            <input type="number" placeholder="Pon tu edad aquí" id="edad">
+            <br />
+            <button id="button">me arriesgo</button>
+            <div id="response"></div>
+        </div>
+        <div class="container" id="pag4"">
+            <h1>Ahora hablame de ti...</h1>
+            <h4></h4>
+            <br />
+            <input type="text" placeholder="Soy juanita y me gusta viajar..." id="nombre">
+            <br />
+            <button id="buttonenviar">enviar</button>
+            <br />
+            <div id="alertaRoja"></div>   
+        </div>
+        <div class="container" id="pag5">
+            <h1>¿Sabes cuál es el ser vivo más fuerte del planeta?</h1>
+            <h4></h4>
+            <br />
+            <div class="divLetras">
+                <input class="letra" type="text" id="letraA">
+                <input class="letra" type="text" id="letraG">
+                <input class="letra" type="text" id="letraI">
+                <input class="letra" type="text" id="letraM">
+                <input class="letra" type="text" id="letraR">
+                <input class="letra" type="text" id="letraO">
+                <input class="letra" type="text" id="letraH">
+            </div>
+        </div>
+        <div class="container" id="pag6">
+            <h1 id="despedida"></h1>
+            <h4>Espero verte en  mi próxima aventura con JS</h4>
+        </div>
+    </section>
+    <script>
+        var nameUser = document.getElementById("userName");
+        const Saludar = document.getElementById("buttonSaludar");
+        const saludoPersona = document.getElementById("saludoPersonal");
+        const despedir = document.getElementById("despedida");
+        
+        Saludar.addEventListener("click", function () {
+            const nameUser = userName.value;
+            if (nameUser==="") {
+                saludoPersona.innerHTML = '<h1>'+'💔'+'</h1>'+'Ok..no me quieres decir tu nombre...' + '<br>'+'te doy la bienvenida igualmente,' + '<br>'+' espero que te diviertas mucho' + '<br>'+ '<h2>'+'¿Comenzamos?'+'</h2>';
+                despedir.innerHTML = 'Persona sin nombre Gracias por llegar hasta aquí'
+            } else {
+                saludoPersona.innerHTML = '<h1>'+'👋🏾'+'</h1>'+`¡Encanta de conocerte, ${nameUser}!` + '<br>'+' te doy la bienvenida a mi formulario,' + '<br>'+' espero que te diviertas mucho' + '<h2>'+'¿Comenzamos?'+'</h2>';
+                despedir.innerHTML = '<h1>'+'❤'+'</h1>'+`¡${nameUser} Gracias por llegar hasta aquí!`;
+            }
+                
+        });
+
+
+        var emailField = document.getElementById("emailField");
+        const Validar = document.getElementById("buttonValidar");
+
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+        Validar.addEventListener("click", function () {
+            const email = emailField.value;
+            if (validateEmail(email)) {
+                alert( 'Enhorabuena tu email es correcto🙌');
+            } else {
+                alert( '"' + emailField.value + '"' +' es un email incorrecto💩');
+            }
+        });
+
+        const edadUser = document.getElementById("edad");
+        const button = document.getElementById("button");
+        const respuesta = document.getElementById("response");
+
+        button.addEventListener("click", function () {
+         const edadUser = edad.value;
+         if (edadUser>29) {
+            respuesta.innerHTML = "Ambos sabemos que ya no eres joven, pero sigues molando... ❤";
+            
+            } else {
+            respuesta.innerHTML = "pero bueno..¡Qué joven!, seguro que aún tienes dientes de leche...🦷";
+        }
+        });
+
+        var dato = document.getElementById("nombre");
+        var enviar = document.getElementById("buttonenviar");
+        var alerta = document.getElementById("alertaRoja");
+        
+        enviar.addEventListener("click", function () {
+            var datos = dato.value;
+            if (datos==="") {
+                alertaRoja.innerHTML = "No seas así...dime algo...";
+                
+            } else {
+                alertaRoja.innerHTML = "Gracias por compartir tu historia";
+            }
+        });
+
+        const inputLetraA = document.getElementById("letraA");
+       
+       inputLetraA.addEventListener("change", function () {
+           const valorInputA = letraA.value;
+           if (valorInputA=="A"|| valorInputA=="a") {
+               document.getElementById("letraA").style.backgroundColor = "green";
+           } else {
+               document.getElementById("letraA").style.backgroundColor = "red";
+       }
+       });
+       const inputLetraG = document.getElementById("letraG");
+      
+       inputLetraG.addEventListener("change", function () {
+           const valorInputG = letraG.value;
+           if (valorInputG=="G"|| valorInputG=="g") {
+               document.getElementById("letraG").style.backgroundColor = "green";
+           } else {
+               document.getElementById("letraG").style.backgroundColor = "red";
+       }
+       });
+
+       const inputLetraI = document.getElementById("letraI");
+      
+       inputLetraI.addEventListener("change", function () {
+           const valorInputI = letraI.value;
+           if (valorInputI=="I"|| valorInputI=="i") {
+               document.getElementById("letraI").style.backgroundColor = "green";
+           } else {
+               document.getElementById("letraI").style.backgroundColor = "red";
+       }
+       });
+
+       const inputLetraM = document.getElementById("letraM");
+      
+       inputLetraM.addEventListener("change", function () {
+           const valorInputM = inputLetraM.value;
+           if (valorInputM=="M"|| valorInputM=="m") {
+               document.getElementById("letraM").style.backgroundColor = "green";
+           } else {
+               document.getElementById("letraM").style.backgroundColor = "red";
+       }
+       });
+
+       const inputLetraR = document.getElementById("letraR");
+      
+       inputLetraR.addEventListener("change", function () {
+           const valorInputR = inputLetraR.value;
+           if (valorInputR=="R"|| valorInputR=="r") {
+               document.getElementById("letraR").style.backgroundColor = "green";
+           } else {
+               document.getElementById("letraR").style.backgroundColor = "red";
+       }
+       });
+
+       
+       const inputLetraO = document.getElementById("letraO");
+      
+       inputLetraO.addEventListener("change", function () {
+           const valorInputO = inputLetraO.value;
+           if (valorInputO=="O"|| valorInputO=="o") {
+               document.getElementById("letraO").style.backgroundColor = "green";
+           } else {
+               document.getElementById("letraO").style.backgroundColor = "red";
+       }
+       });
+
+       const inputLetraH = document.getElementById("letraH");
+      
+       inputLetraH.addEventListener("change", function () {
+           const valorInputH = inputLetraH.value;
+           if (valorInputH=="H"|| valorInputH=="h") {
+               document.getElementById("letraH").style.backgroundColor = "green";
+           } else {
+               document.getElementById("letraH").style.backgroundColor = "red";
+       }
+       });       
+    </script>
+</body>
+</html>

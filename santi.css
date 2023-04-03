@@ -1,0 +1,365 @@
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+body{
+    display: block;
+
+    margin: 0px auto;
+    font-family: sans-serif;
+    background-color: white;
+	/* evitar los desbordamiento lateral entre navegación y página cortas*/
+	overflow-y: scroll;
+	background-color: #0a3300b6;
+}
+a{
+	color: rgb(100, 100, 100);
+	text-decoration: none;
+}
+
+/*
+Aquí empieza las clases generales
+*/
+.cabecera{
+	display: flex;
+  	flex-wrap: wrap;
+	justify-content: space-between;
+	background-color: rgba(15, 14, 14, 1);
+	box-shadow: 0px 9px 13px 8px #08912abb;
+}
+.cabeceraimg{
+	height: 633px;
+	width: 100%;
+	background: url("../santo/meta.jpg") center no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+
+.index{
+    margin-top: 120px;
+	color: white;
+	font-size: 3em;
+	text-align: center;
+	width: 100%;
+}
+.index p{
+    text-transform: uppercase;
+	color: white;
+  	text-shadow: 2px 2px 4px #000000;
+}
+
+.logo img{
+    height: 100px;
+	margin: 10%;
+	transition: transform .3s;
+    background: #2b1ee673;
+}
+.logo img:hover{
+	transform: scale(1.1);
+}
+.menu{
+	margin-top: 40px;
+	margin-left: 0%;
+	margin-right: 50px;
+}
+h1{
+	text-align: center;
+	background-color: black;
+	color: white;
+	padding:20px;
+}
+/* decoración botones superiores*/
+nav ul li a{
+	transition: transform .3s;
+}
+nav ul li a:after {
+	display:block;
+	content: '';
+	border-bottom: solid 3px #e66802;
+	transform: scaleX(0);  
+	transition: transform 250ms ease-in-out; 
+}
+nav ul li a:hover:after { transform: scaleX(1); }
+nav ul li a:hover{ transform: scale(1.5);}
+nav ul li a.fromRight:after{ transform-origin:100% 50%; }
+nav ul li a.fromLeft:after{  transform-origin:  0% 50%; }
+/* fin decoración botones superior*/
+
+nav ul{
+	width: 100%;
+	list-style-type: none;
+	text-align:center;
+}
+nav li{
+	display:inline-flex;
+}
+nav li:hover{
+	*background-color: black;
+}
+nav a{
+    text-transform: uppercase;
+	text-decoration:  none;
+	color: white;
+	padding: 10px;
+	width: 150px;
+}
+/* fin cabecera */
+
+/* main */
+main{
+	margin: 0 10%;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+/*parte del grid */
+.contenido{
+    margin: 0 49px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.grid-layout{
+    border-radius: 2%;
+    height: 800px;
+    display: grid;
+    background-color: rgba(230, 134, 10, 0.712);
+    box-shadow: 10px 10px 5px #df6c00;
+    grid-template-columns: auto auto 33%;
+    grid-template-rows: auto 33.33%;
+}
+.caja{
+    *border: 1px solid black;
+    margin: 10px;
+}
+.c1{
+    grid-column: span 2;
+    margin: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 10px;
+}
+.c2{
+    position: relative;
+    margin-bottom: 40%;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.c2 img{
+    display: block;
+    width: 100%;
+    justify-content: center;
+}
+.c2:hover .overlay {
+    opacity: 1;
+}
+.overlay{
+    position: absolute;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 98%;
+    width: 97%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #26aa0be1;
+  }
+.text{
+    text-decoration: underline;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+.c3{
+    padding-top: 15%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+.div_animado{
+    text-align: center;
+    width: 100px;
+    height: 80px;
+    background: #92B901;
+    color: #ffffff;
+    position: absolute;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 30px;
+    padding-top: 35px;
+    float: left;
+    margin: 5px;
+    transition-duration: 1s,1s,1s,1s,1s,1s;
+    border-radius: 5px;
+    opacity: 0.7;
+}
+.div_animado:hover{
+    opacity: 1;
+    text-align: center;
+    background: #1ec7e6;
+    width: 200px;
+    height: 160px;
+    font-size: 4em;
+    padding-top: 45px;
+}
+.c4{
+    text-align: center;
+}
+/* carrusel */
+.carrusel{
+    margin-top: 50px;
+    text-align: center;
+}
+.carrusel_contenedor{
+    position: relative;
+}
+.carrusel_anterior,
+.carrusel_siguiente{
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: none;
+    top: calc(50% - 25px);
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    background: none;
+    color: #fff;
+    opacity: 20%;
+}
+.carrusel_anterior{
+    left: -10px;
+}
+.carrusel_siguiente{
+    right: -10px;
+}
+.carrusel_anterior:hover,
+.carrusel_siguiente:hover{
+    opacity: 100%;
+}
+.carrusel_elemento img{
+    width: 300px;
+    height: 200px;
+}
+.carrusel_elemento:hover img{
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+
+.carrusel_lista.glider,.glider-contain {
+    margin: 0 40px auto;
+    position: relative
+}
+.button.glider-dot{
+    display: block;
+    width: 30px;
+    height: 5px;
+    background: #fff;
+    opacity: .2;
+    border-radius: 0;
+}
+/*fin del cuerpo de la página*/
+/* para el pie de página  */
+footer{
+	display: inline-flex;
+  	flex-wrap: nowrap;
+	width: 100%;
+	background-color: rgb(3, 48, 7);
+	color:white;
+	text-align: center;
+}
+footer h2{
+	font-size: 1em;
+}
+footer p{
+	text-emphasis: center;
+	padding: 50px;
+}
+footer a{
+	color: white;
+}
+footer div{
+
+	width: 33%;
+	margin: 15px;
+	padding: 20px;
+}
+footer div ul{
+	list-style-type: none;
+}
+footer div ul li{
+	margin: 10px;
+}
+footer div input{
+	padding: 2px;
+	margin-top: 5px;
+	font-size: 1.5em;
+	width: 200px;
+}
+footer div button{
+	background-color:#df6c00;
+	color: white;
+	padding: 2px;
+	margin-top: 5px;
+	font-size: 1.5em;
+	width: 200px;
+	border: none;
+}
+.last{
+	text-align: center;
+}
+
+.color{
+	color: rgba(108, 100, 100, 1);
+	display: flex;
+  	flex-wrap: wrap;
+	justify-content: space-between;
+	border-top: 1px solid #6C6464;
+	font-size: small;
+}
+
+/* ajustes de la zona de copyright y grupo de creación por SANTI */
+.color div{
+    color: #6C6464;
+    text-align: justify;
+    margin: 10px;
+    margin-left: 10%;
+}
+/* fin pie de página*/
+
+/* ver en el dispositivo */
+@media screen and (max-width:850px){
+	footer{
+		display: block;
+  		padding: 1px;
+	}
+	main, .contenido{
+		margin: 0px;
+		margin-bottom: 10px;
+	}
+    .contenido{
+        padding: 10px;
+        margin-top: 20px;
+    }
+	footer div{
+		width: auto;
+	}
+	.logo{
+		text-align: center;
+	}
+	button{
+		width: auto;
+	}
+	.color div{
+		margin: 5px 10px;
+		padding: 5px 10px;
+    }
+    .menu{
+		margin: 0 auto;
+	}
+}
