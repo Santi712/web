@@ -1,14 +1,24 @@
-body {
-    background: #111;
-    font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
+.juego {
+  margin-top: 70px;
     user-select: none;
     min-width: 420px;
-  }
+  } 
   p {
     color: white;
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
-  button {
+  .iniciar {
+    background: none;
+    color: aliceblue;
+    margin: 0 0.4em;
+    border: 0;
+    padding: 0;
+    font-size: em;
+    cursor: pointer;
+  }
+  .controls button{
     background: none;
     color: aliceblue;
     margin: 0 0.4em;
@@ -16,7 +26,7 @@ body {
     padding: 0;
     font-size: 4em;
     cursor: pointer;
-  }
+    }
   #click {
     color: white;
     cursor: pointer;
@@ -139,10 +149,10 @@ body {
     top: 185px;
     padding: 5px;
     background: #000;
-    width: calc(100% - 10px)
+    width: 100%
   }
   #panel {
-    width: 120px;
+    width: 280px;
     height: 35px;
     margin: 0 auto;
     background: #922;

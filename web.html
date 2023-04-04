@@ -203,12 +203,13 @@
 
         button.addEventListener("click", function () {
          const edadUser = edad.value;
-         if (edadUser>29) {
-            respuesta.innerHTML = "Ambos sabemos que ya no eres joven, pero sigues molando... ❤";
-            
+         if (edadUser>65) {
+            respuesta.innerHTML = "Igual ya no eres tan joven... 😥";
+            } else if (edadUser>29) {
+            respuesta.innerHTML = "Aún te puedes comer el mundo y demostrar de lo que vales ❤️";
             } else {
-            respuesta.innerHTML = "pero bueno..¡Qué joven!, seguro que aún tienes dientes de leche...🦷";
-        }
+            respuesta.innerHTML = "Pero qué joven!! Si aún pagas el abono transporte joven 😊";
+         }
         });
 
         var dato = document.getElementById("nombre");

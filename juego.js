@@ -1,4 +1,4 @@
-//CARS
+//COCHES
 var car = document.getElementById('car');
 car.init = function () { 
   car.speed = 0.2;
@@ -29,9 +29,7 @@ car.crash = function (d) {
     car.crashed = true;
     car.speed = 0.2;
     car.sx = d ? d : 0;
-    game.audio.oscillator.frequency.value = 15;
     setTimeout(function () {
-      game.audio.oscillator.frequency.value = 60;
       car.crashed = false;
       car.sx = 0;
     }, 800);
@@ -68,7 +66,7 @@ cars.frame = function () {
       var h = cars.n * car.height * 3;
       if (!c.classList.contains('hidden') && 
           c.y < car.height - 5 && c.y > 0) {
-        //collision
+        //CHOQUES
         if (car.x < 115 && i == 0) car.crash(0.1);
         if (car.x > 100 && car.x < 175 && i == 1) car.crash();
         if (car.x > 165 && i == 2) car.crash(-0.1);
@@ -126,7 +124,7 @@ cars.color = function (c) {
   var randomLight = 2.5 + (Math.random() * 2);
   c.style['filter'] = 'hue-rotate('+randomColor+'deg) brightness('+randomLight+')';
 };
-//ROAD
+//CAMINO
 var road = document.getElementById('road');
 road.init = function() {
   road.ctx = road.getContext('2d');
@@ -321,7 +319,7 @@ buttons.forEach(function (id) {
 var clickstart = document.getElementById('click')
 clickstart.addEventListener('click', function () {
   if (!game.started) {
-    clickstart.innerText = 'Click to Pause';
+    clickstart.innerText = 'Pulsa para parar';
     game.time = 0;
     game.started = true;
     frame.stop = false;
@@ -331,7 +329,7 @@ clickstart.addEventListener('click', function () {
     game.timeCount = setTimeout(game.changeTime, 30000);
     frame();
   } else {
-    clickstart.innerText = 'Click to Start!';
+    clickstart.innerText = 'Pulsa para reanudar';
     game.started = false;
     frame.stop = true;
     clearTimeout(game.curveCount);

@@ -25,13 +25,15 @@ Aquí empieza las clases generales
 	display: flex;
   	flex-wrap: wrap;
 	justify-content: space-between;
-	background-color: rgba(15, 14, 14, 1);
 	box-shadow: 0px 9px 13px 8px #08912abb;
+    align-items: flex-start;
+    align-content: stretch;
+    flex-direction: row;
 }
 .cabeceraimg{
 	height: 633px;
 	width: 100%;
-	background: url("../santo/meta.jpg") center no-repeat;
+	background: url("../santo/meta.jpg") center no-repeat fixed;
 	background-size: cover;
 	text-align: center;
 }
@@ -47,11 +49,15 @@ Aquí empieza las clases generales
     text-transform: uppercase;
 	color: white;
   	text-shadow: 2px 2px 4px #000000;
+    margin-top: 100px;
 }
-
+.logo{
+    background-attachment: fixed;
+}
 .logo img{
     height: 100px;
-	margin: 10%;
+	margin-top: 15px;
+    margin-left: 25px;
 	transition: transform .3s;
     background: #2b1ee673;
 }
@@ -121,6 +127,8 @@ main{
 .grid-layout{
     border-radius: 2%;
     height: 800px;
+    padding-bottom: 30px;
+    padding-top: 5px;
     display: grid;
     background-color: rgba(230, 134, 10, 0.712);
     box-shadow: 10px 10px 5px #df6c00;
@@ -137,6 +145,9 @@ main{
     margin-top: 10px;
     margin-bottom: 0;
     padding: 10px;
+}
+.c1 p{
+    text-align: left;
 }
 .c2{
     position: relative;
@@ -179,6 +190,7 @@ main{
     width: 100%;
     justify-content: center;
     display: flex;
+    align-items: center;
 }
 .div_animado{
     text-align: center;
@@ -186,13 +198,10 @@ main{
     height: 80px;
     background: #92B901;
     color: #ffffff;
-    position: absolute;
     font-weight: bold;
     font-size: 1em;
     padding: 30px;
-    padding-top: 35px;
-    float: left;
-    margin: 5px;
+    *padding-top: 35px;
     transition-duration: 1s,1s,1s,1s,1s,1s;
     border-radius: 5px;
     opacity: 0.7;
@@ -207,7 +216,40 @@ main{
     padding-top: 45px;
 }
 .c4{
+    justify-content: center;
     text-align: center;
+}
+.c4 button{
+    margin-top: 10px;
+    padding: 6px;
+    background: #4076f3;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #4076f3;
+    color: rgb(255, 255, 255);
+}
+.c5{
+    background-color: #be3c0098;
+    border-radius: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.c5 h3{
+    justify-content: center;
+    color: rgb(1, 148, 26);
+    display: flex;
+    font: bold 35px Helvetica;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+.hovertown span {
+    transition: all 0.9s ease;
+}
+.hovertown span:hover {
+    text-shadow: 0 0 72px black; 
+    color: transparent;      
+    transition: all 0.2s ease; 
 }
 /* carrusel */
 .carrusel{
@@ -242,6 +284,9 @@ main{
 .carrusel_siguiente:hover{
     opacity: 100%;
 }
+.carrusel_elemento p{
+    text-transform: capitalize;
+}
 .carrusel_elemento img{
     width: 300px;
     height: 200px;
@@ -250,7 +295,33 @@ main{
     transform: scale(1.1);
     transition: 0.4s;
 }
-
+.rojo{
+    color: red;
+}
+.naranja{
+    color: #e66802;
+}
+.amarillo{
+    color: #ffe600;
+}
+.verde{
+    color: #92B901;
+}
+.celeste{
+    color: #1ec7e6;
+}
+.azul{
+    color: blue;
+}
+.morado{
+    color: #a803d1;
+}
+.rosa{
+    color: #f30096;
+}
+.marron{
+    color: #be3c00;
+}
 .carrusel_lista.glider,.glider-contain {
     margin: 0 40px auto;
     position: relative
@@ -264,6 +335,9 @@ main{
     border-radius: 0;
 }
 /*fin del cuerpo de la página*/
+
+/*el css del juego va a parte*/
+
 /* para el pie de página  */
 footer{
 	display: inline-flex;
@@ -334,7 +408,10 @@ footer div button{
 
 /* ver en el dispositivo */
 @media screen and (max-width:850px){
-	footer{
+	.cabecera{
+        justify-content: center;
+    }
+    footer{
 		display: block;
   		padding: 1px;
 	}
@@ -351,6 +428,7 @@ footer div button{
 	}
 	.logo{
 		text-align: center;
+        margin: 0;
 	}
 	button{
 		width: auto;
