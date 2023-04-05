@@ -186,7 +186,7 @@ road.randomCurve = function () {
     road.curve(Math.random()>0.5 ? 'left' : 'right');
   }, 2000); 
 };
-//MOUNTAINS
+//MONTAÑAS
 var mountains = document.getElementById('mountains');
 mountains.frame = function () {
   var curve = (road.P0.x - road.width/2)/100; 
@@ -196,7 +196,7 @@ mountains.frame = function () {
   var d = curve + ((car.speed)*curve*0.5);
   mountains.style.left = parseInt(left - d) + 'px';
 };
-//UI
+//INTERFAZ
 var km = document.getElementById('km');
 km.frame = function () {
   car.km += (car.speed/1000);
@@ -219,7 +219,7 @@ position.frame = function () {
     a.innerText = value[i];
   }
 }
-//LAP 
+//VUELTA
 var lap = document.getElementById('lap');
 lap.init = function () {
   lap.value = 1;
@@ -246,7 +246,7 @@ var frame = function () {
     requestAnimationFrame(frame);
   }
 };
-//KEYBOARD
+//TECLAS
 var key = {
   pressed: [],
   frame: function () { 
@@ -268,16 +268,13 @@ var key = {
       } else car.crash(-0.2);
       if (key.pressed['up'] ||
           key.pressed[32] || // Key: Space
-          key.pressed[38] || // Key: Up arrow
           key.pressed[87]) { // Key: 'W'
         if (car.speed < car.maxSpeed) { 
           car.speed += car.acc;
-          game.audio.oscillator.frequency.value += car.acc * 10;
         }
       } else {
         if (car.speed > 0.2) {
           car.speed -= car.break;
-          game.audio.oscillator.frequency.value -= car.break * 10;
         }
       }
     }
@@ -289,7 +286,7 @@ window.addEventListener('keydown', function (event) {
 window.addEventListener('keyup', function (event) {
   key.pressed[event.keyCode] = false;
 });
-//GAME
+//JUEGO
 var game = document.getElementById('game');
 game.init = function () {
   game.time = 0;
@@ -301,7 +298,7 @@ game.init = function () {
   fog.init();
   cars.frame();
 };
-// BUTTONS
+// BOTON
 var buttons = ['left', 'up', 'right'];
 buttons.forEach(function (id) {
   var button = document.getElementById(id);
@@ -324,49 +321,28 @@ clickstart.addEventListener('click', function () {
     game.started = true;
     frame.stop = false;
     if (!cars.builded) cars.init();
-    game.audio();
+
     game.curveCount = setTimeout(road.randomCurve, 5000);
     game.timeCount = setTimeout(game.changeTime, 30000);
-    frame();
+    frame()
   } else {
     clickstart.innerText = 'Pulsa para reanudar';
     game.started = false;
     frame.stop = true;
     clearTimeout(game.curveCount);
     clearTimeout(game.timeCount);
-    game.audio.oscillator.stop();
   }
 });
-//AUDIO
-game.audio = function () {
-  if (game.audio.oscillator) {
-    game.audio.oscillator.stop(game.audio.context.currentTime);
-    game.audio.oscillator.disconnect(game.audio.volume);
-    delete game.audio.oscillator;
-  }
-  game.audio.context = new AudioContext();
-  game.audio.volume = game.audio.context.createGain();
-  game.audio.volume.gain.value = 0;
-  game.audio.volume.connect(game.audio.context.destination);  
-  var o = game.audio.context.createOscillator();
-  o.frequency.value = 0;
-  o.detune.value = 0;
-  o.type = 'sawtooth';
-  o.connect(game.audio.volume);
-  o.frequency.value = 0;
-  game.audio.oscillator = o;
-  game.audio.oscillator.start(0);
-};
-//COLORS
+//COLORES
 game.colors = [
-  //sky //terrain //mountains
-  ['#228', '#040', 1], //day
-  ['#93c', '#440', 0.5], //afternoon 
-  ['#546', '#111', 0.2], //night
-  ['#888', '#aaa', 0.2], //fog
-  ['#545', '#111', 0.2], //night
-  ['#529', '#230', 0.3], //morning
-  ['#aaf', '#eee', 0.2], //snow
+  //cielo //terreno //montañas
+  ['#228', '#040', 1], //dia
+  ['#93c', '#440', 0.5], //terde
+  ['#546', '#111', 0.2], //noche
+  ['#888', '#aaa', 0.2], //niebla
+  ['#545', '#111', 0.2], //noche
+  ['#529', '#230', 0.3], //mañana
+  ['#aaf', '#eee', 0.2], //nieve
 ];
 var sky = document.getElementById('sky');
 var terrain = document.getElementById('terrain');
@@ -386,7 +362,7 @@ game.changeTime = function () {
     game.timeCount = setTimeout(game.changeTime, 30000);
   }
 };
-//FOG
+//NIEBLA
 var fog = document.getElementById('fog');
 fog.init = function () {
   fog.value = 0.02;
