@@ -52,7 +52,7 @@ const respuesta = document.getElementById("response");
 button.addEventListener("click", function () {
  const edadUser = edad.value;
  if (edadUser>=65) {
-    respuesta.innerHTML = "Igual ya no eres tan joven... 😥 Pero tu experiencia enseñará a muchas personas";
+    respuesta.innerHTML = "Igual ya no eres tan joven... 😥 Pero tu experiencia enseñará a muchas personas 😎";
     } else if (edadUser>26) {
     respuesta.innerHTML = "Aún te puedes comer el mundo y demostrar de lo que vales ❤️";
     } else {

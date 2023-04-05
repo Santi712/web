@@ -72,7 +72,7 @@ cars.frame = function () {
         if (car.x > 165 && i == 2) car.crash(-0.1);
       }
       if (c.y > h) {
-        // back to bottom
+        // vuelvan al fondo
         cars.color(c);  
         c.classList.remove('hidden');
         if (car.x < 115 && i == 0) c.classList.add('hidden');
@@ -82,7 +82,7 @@ cars.frame = function () {
         if (!c.classList.contains('hidden')) car.position++;
         c.y = 0;
       } else if (c.y < 0)  {
-        //passing
+        //sobrpasando
         if (!c.classList.contains('hidden')) {
           car.position--;
         } 
@@ -106,6 +106,7 @@ cars.frame = function () {
   car.st.innerHTML = '#cars .car {transform: rotateX(-56deg) scaleX('+car.motor+') }';
   car.style.left = parseInt(car.x) + 'px';
 };
+//COLORES de COCHES
 cars.create = function (i,j) {  
   var c = document.createElement('div');
   c.className = 'car';
@@ -124,7 +125,7 @@ cars.color = function (c) {
   var randomLight = 2.5 + (Math.random() * 2);
   c.style['filter'] = 'hue-rotate('+randomColor+'deg) brightness('+randomLight+')';
 };
-//CAMINO
+//LINEAS CAMINO
 var road = document.getElementById('road');
 road.init = function() {
   road.ctx = road.getContext('2d');
@@ -333,7 +334,7 @@ clickstart.addEventListener('click', function () {
     clearTimeout(game.timeCount);
   }
 });
-//COLORES
+//COLORES del DIA
 game.colors = [
   //cielo //terreno //montañas
   ['#228', '#040', 1], //dia
